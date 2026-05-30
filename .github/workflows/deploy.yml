@@ -20,12 +20,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
 
-      - name: Clean install dependencies
+      - name: Clear npm cache and install dependencies
         run: |
+          npm cache clean --force
           rm -rf node_modules package-lock.json
-          npm install
+          npm install --prefer-offline --no-audit
 
       - name: Build project
         run: npm run build
