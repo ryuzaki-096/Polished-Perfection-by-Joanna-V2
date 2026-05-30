@@ -8,6 +8,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,10 +31,9 @@ jobs:
         run: |
           npm cache clean --force
           rm -f package-lock.json
-          ls -la
 
       - name: Install dependencies with legacy peer deps
-        run: npm install --legacy-peer-deps --verbose
+        run: npm install --legacy-peer-deps
 
       - name: Build project
         run: npm run build
@@ -40,4 +44,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           branch: gh-pages
-          cname: false
+          force_orphan: true
