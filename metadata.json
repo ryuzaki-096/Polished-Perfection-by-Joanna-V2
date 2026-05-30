@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Polished Perfection by Joanna V2",
+  "description": "NA",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
